@@ -2,109 +2,165 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<meta name="description" content="">
-		<meta name="author" content="">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+					<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+					<meta name="description" content="">
+						<meta name="author" content="">
 
-		<title>Project Template</title>
+							<title>Project Template</title>
 
-		<!-- Bootstrap core CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+							<!-- Bootstrap core CSS -->
+							<link href="css/bootstrap.min.css" rel="stylesheet">
 
-		<!-- Link more styles here -->
+								<!-- Link more styles here -->
+								<link href="css/main.css" rel="stylesheet">
 
 
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
+									<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+																		<!--[if lt IE 9]>
+																		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+																			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+																				<![endif]-->
 </head>
 
 <body style="padding-top: 50px; padding-bottom: 50px">
 
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Final Project</a>
-				</div>
-				<div id="navbar" class="collapse navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#topic1">Topic 1</a></li>
-						<li><a href="#topic2">Topic 2</a></li>
-						<li><a href="#topic3">Topic 3</a></li>
-					</ul>
-				</div><!--/.nav-collapse -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Final Project</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li id="homeNavButton" class="active"><a href="#">Home</a></li>
+					<li id="dosNavButton"><a href="#dosTopic">DOS Attacks</a></li>
+					<li id="webAppNavButton"><a href="#webAppTopic">Web App Attacks</a></li>
+					<li><a href="#topic3">Topic 3</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
 		</nav>
 
 		<div class="container">
 			<!-- Place Content Here -->
-			<div id="topic1">
-				<h1>Topic 1</h1>
-				<p>Some content on topic 1 here</p>
-				<br><br><br><br><br><br><br><br>
-				...
-				<br><br><br><br><br><br><br><br>
-				<p>more topic 1 content </p>
+			<div id="dosTopic">
+				<h1>Denial of Service Attacks (DoS)</h1>
+				<div class="content">
+					<h2>Introduction</h2>
+					<p>Sometimes people don’t want to break into a website, but they just want to disrupt it. A denial of service attack, or DoS, prevents legitimate uses of a website by flooding it with illegitimate requests. The way your web browser works is it sends what is called an HTTP request to a server hosting the website you are trying to reach. The server reads the request and sends the webpage content back to you, which you then see show up. The server can only handle a few requests at a time, so if too many requests come in it has to make them wait until it can handle them. The basic idea behind a DoS attack is sending HTTP requests to the server as fast as possible, “flooding” it with your requests so legitimate requests can’t be served (or are handled very slowly). This kind of attack is usually not permanently damaging, and often happens for only a few hours</p>
+
+					<h2>Distributed Denial of Service (DDoS)</h2>
+					<p>A common type of DoS attack is a Distributed Denial of Service (DDoS) attack. In this attack, many systems perform a DoS attack at the same time. This can greatly increase the number of requests the server is receiving, and it is harder to stop than if only one user was performing a DoS attack. Usually the systems performing a DDoS attack are part of a “botnet”, which is a collection of compromised systems that can be controlled by the botnet’s creator, usually without the knowledge of the systems’ owners. The creator of the botnet tells all of the compromised systems in the botnet to send requests to the targeted website, which then gets overloaded and is rendered unusable. The largest botnets can have millions of computers, so they can be effective at taking down large websites and even (sections of the internet’s infrastructure:link to DynDNS example).	</p>
+
+					<h2>Distributed-Reflected Denial of Service (DRDoS)</h2>
+					<p>The Distributed-Reflected Denial of Service (DRDoS) attack is similar to the DDoS attack. However, instead of having many compromised systems send requests to the targeted server, forged requests are sent to hundreds of thousands of legitimate systems, all claiming to have come from the targeted server. Most of these machines then respond to this fake request, flooding the target with their responses. It is extremely difficult to stop this sort of attack because, to the server, all of these responses are valid and coming from valid systems. </p>
+
+					<h2>Slowloris</h2>
+					<p>Another type of DoS attack is called Slowloris. It works by opening up as many connections to the web server as it can. Web servers have a finite amount of connections they can make at any given time, so if one user used all of the connections they would be stopping anyone else from connecting to the server and getting the web site. To keep all of its connections open, it sends an HTTP POST request that says it is really large (usually 2GB). It then sends pieces of its “data” over long periods of time. The server waits for the entire message to come through, which effectively disables that connection for a while. This attack can be used by a single person to effectively shut down an entire website.
+					</p>
+
+					<h2>Motivation for DoS Attacks</h2>
+					<p>There are a few reasons why someone would perform a DoS attack. Sometimes it is motivated out of anger towards a company or organization. As retaliation for being slighted by that entity, the individual DoSes their website. Another way DoS attacks are used is as a cover for other, more sophisticated attacks. Performing a DoS attack on a server allocates most of that server’s technical workers to stop the attack, allowing advanced persistent threats to be installed or data to be stolen:links with a smaller chance that the owner of the server notices. Finally, DoS attacks are often used as a form of hacktivism. Hacktivism is the online equivalent of activism. In this case, a DoS attack on an organization is a sign of protest against that organization. This kind of attack is usually a DDoS attack, with the exception that many of the systems used in the attack are doing so with the owner’s full knowledge, rather than using only a botnet.</p>
+
+					<h2>DoS Prevention</h2>
+					<p>If a DoS attack comes from one source, it can be stopped by blocking incoming network traffic from that source. If it is a DDoS or DRDoS attack, however, it is much harder to detect and prevent. Some services exist which analyze incoming network traffic for abnormalities to prevent some of these attacks, or at least make them less effective. Many sites use these services, but if they are attacked indirectly (like in the DynDNS attack) there’s nothing they can do.</p>
+
+					<h2>Attack on DynDNS</h2>
+					<p>When you type an address into your web browser, say google.com, the web browser has to look up where that website actually is. It does this by going to the internet’s Domain Name Service (DNS) and matching the web address with its IP address. Without DNS most users of the internet would not be able to access websites in their browsers. A DDoS attack on a major DNS provider, DynDNS, occurred on October 21, 2016. It used a botnet composed of Internet of Things (IoT) devices. It was the largest DDoS attack to date, with an estimated 1.2 terabit per second load on the server. The attack took out access to many big websites for about two hours, including Netflix, Github, Amazon, and Twitter.</p>
+				</div>
 			</div>
 
-			<hr>
+			<hr />
 			<div class="link_bar">
-				<a href="#topic1" class="btn btn-link">Topic 1</a>
-				<a href="#topic2" class="btn btn-link">Topic 2</a>
+				<a href="#dosTopic" class="btn btn-link">Denial of Service Attacks</a>
+				<a href="#webAppTopic" class="btn btn-link">Web App Attacks</a>
 				<a href="#topic3" class="btn btn-link">Topic 3</a>
 			</div>
-			<hr>
+			<hr />
 
-			<div id="topic2">
-				<h1>Topic 2</h1>
-				<p>Some content on topic 1 here</p>
-				<br><br><br><br><br><br><br><br>
-				...
-				<br><br><br><br><br><br><br><br>
-				<p>more topic 1 content </p>
+			<div id="webAppTopic">
+				<h1>Attacks on Web Applications</h1>
+				<div class="content">
+
+					<h2>Introduction</h2>
+					<p>This section will detail attacks that can be made against web applications. First, we need to define what a web app is. In this case, we will define a “web app” or “web application” as a any website that has some type of user interaction. For example, a website such as this one which only displays information would not be considered a web application for our purposes. The reason that this is important is that a website such as this one is fairly simple and doesn’t use the technologies that make a web application more susceptible to security vulnerabilities. Also, a website such as this is inherently more secure because it doesn’t contain any personal data, financial data or other data of a secretive nature that would be of interest to steal. Hence, there is little incentive to try to find security vulnerabilities in a website like this one.</p>
+					<p>Now that we have defined what a web app is, this section will be devoted to discussing several common attacks that can be made against web apps. The specific attacks that we will be discussing are known as “SQL Injection”, “Cross Site Scripting.” Also, we will look briefly at how passwords should be stored to mitigate damages if they become public.  These are three common attacks that all web apps need to defend against.</p>
+
+					<h2>SQL Injection</h2>
+					<p>To discuss SQL Injection, we first need to have a basic understanding of SQL and databases. Databases are relational data structures which store all the data that a web application uses to function. This data might include usernames, passwords or credit card numbers. SQL is the language that is used to query the information out of databases. Finally SQL Injection is the act of exploiting parts of the web app that accept user input to run malicious SQL code which is used to first find something out about the structure of the database and then to pull data of interest out of the database. </p>
+					<p>For example, if an attacker is trying to get account numbers out of a bank’s database. A normal query to the database made when might be of the form</p>
+
+					<code>SELECT accountId, accountBalance FROM Accounts WHERE accountId = %d AND accountBalance > %s</code>
+
+					<p>where <i>%d</i> is the id of an account which a user wants to transfer money out of and <i>%s</i> is the amount that the user want to transfer. These values are where there is a vulnerability to SQL Injection. If the <i>%s</i> value is taken from an input in a form on the web app, the user can put anything into that form and it will be passed, exactly as entered into the query. So, if a malicious user guessed that the database was named “Accounts” and entered</p>
+
+					<code>1; SELECT * FROM Accounts; --</code>
+
+					<p>Then, that code would get put into the first query so that the whole query to the database would be:</p>
+
+					<code>SELECT accountId, accountBalance FROM Accounts WHERE accountId = %d AND accountBalance > 1; SELECT * FROM Accounts; --</code>
+
+					<p>This would return all of the information from the Accounts database. This information would likely include account numbers, userIds, account balances and other personal information of everyone whose accounts are stored in that database. With this information, a user could figure out what their account is and then, using a similar method to make more queries they could change the balance of their account in the database and then withdraw cash before anyone catches the error. A user could also destroy the database if they wanted to cause a disruption to everything as a political or personal statement against the bank. </p>
+					<p>The above is a single example of what one malicious user could do using SQL Injection. There are many other things that someone could do in many other cases. Also, it shows that any user input needs to be secured against any malicious intent. There are also multiple ways that a developer can secure their application against this. One way is to force everything to be passed in as an argument, which will prevent the database from executing any code that gets put in and will likely just return an error. Another way to protect against it is by checking the type of all of the data that is passed in. In this case, the value should be checked to make sure it is a number. Then the SQL code would return an error. </p>
+
+					<p>SQL Injections are one of the most common ways that web applications are attacked. They are also not that difficult to defend against. Because of this, any developer who is going to be working with databases should be taught how to defend against them and should be careful to do it properly.</p>
+
+					<h2>Password Storage</h2>
+					<p>Related to SQL injection is the topic of password storage. While, ideally we don’t want data to ever get into the hands of a malicious user, there are ways that are very difficult to protect against, such as a person with inside access leaking a database. Therefore a developer should try to mitigate the damage that a leak could do wherever possible. One of the most critical pieces of data to keep secure is passwords. If an application uses user passwords, certain precautions should be taken to store them in a secure way.  It is probably obvious that storing the passwords in “plain text”, meaning simply storing them as they are typed, is not a good idea. Even without storing the passwords as plain text, there are still certain pitfalls to avoid, as 
+						<a href="https://nakedsecurity.sophos.com/2013/11/04/anatomy-of-a-password-disaster-adobes-giant-sized-cryptographic-blunder/">this article</a>
+					by the security news site Naked Security by Somos showed by analyzing data gathered from an adobe breach of “encrypted” passwords in 2013. The current standard way to store passwords is by using a “salt” and “hash.” A salt is a random string of characters which is generated for each user. A hash is a function which takes in a string of characters and outputs a different string of characters. The hash function is designed in such a way that it is easy to compute the hash from the password but nearly impossible to compute the password from the hash. The salt is added to the password before hashing it. The purpose of the salt is so that identical passwords won’t have the same hash value, making it more difficult for people who get the entire database to guess similar passwords. When passwords are stored in this way, it is almost impossible to get the password from the database which the salted and hashed password is stored.</p>
+
+				<h2>Cross Site Scripting (XSS)</h2>
+				<p>Cross Site Scripting is another very common attack. It is similar to SQL Injection in that it exploits how the code that websites are built on work and it also exploits unsecured user input. The difference is, instead of exploiting databases on the server and the SQL language that is used by them, it exploits that HTML and JavaScript that is run on the client side of the website.  A web page is built with a series of HTML tags. These tags define different things like where the body of the page starts and ends, or if some text should be bold or italic. One special tag is the ‘&lt;script&gt;’ tag. This tag tells the page that everything within that tag is in the language JavaScript. JavaScript is used to make websites more interactive. For example, on this website JavaScript is used to make the navigation at the top highlight the section you are viewing as you scroll through it. This is a very simple use of the language, but it is an example of something that wouldn’t be possible with only HTML tags. </p>
+
+				<p>A Cross Site Scripting attack happens when a user enters these script tags with JavaScript code between them into an input where the information entered is later shown elsewhere on the site. When the site places the text entered on the site it will get to the script tag and realize that it needs to run the code within those tags. Usually, this isn’t a big deal because it can only affect the user who is view the page and who entered the code and there is really no lasting harm done. There is one case, though, where lasting harm can be done. If the field which the user enters the code is one that stores what the user enters and then displays it to others, then it will affect everyone who sees the code. An example of this is a website which has a comment section. If a user enters a comment that contains the JavaScript code then the website displays this comment to others, the JavaScript will be run every time a user visits the site. Depending on the site and where the comment section is, this could be a huge security vulnerability. For example, if users can view articles and comments without being logged in, but the fields to enter the username and password appear at the top of the page, the injected code could hijack those fields and send the user's login details elsewhere before sending them to the website they are on and logging them in.</p>
+
+				<p>To protect against this, all user input should be “escaped”, meaning that any characters that have special meaning in HTML such as the ‘<’ and ‘>’ characters should be converted to the character codes so that the page will display them as text instead of running it as code. This is very similar to how to protect against SQL Injection.</p>
+
+				<p>Similar to SQL Injection, anyone who develops web applications should know about Cross Site Scripting Vulnerabilities and should know how to defend against them.</p>
+
+				</div>
 			</div>
 
 			<hr>
-			<div class="link_bar">
-				<a href="#topic1" class="btn btn-link">Topic 1</a>
-				<a href="#topic2" class="btn btn-link">Topic 2</a>
-				<a href="#topic3" class="btn btn-link">Topic 3</a>
-			</div>
-			<hr>
-				
-			<div id="topic3">
-				<h1>Topic 3</h1>
-				<p>Some content on topic 1 here</p>
-				<br><br><br><br><br><br><br><br>
-				...
-				<br><br><br><br><br><br><br><br>
-				<p>more topic 1 content </p>
-			</div>
-			<hr>
-			<div class="link_bar">
-				<a href="#topic1" class="btn btn-link">Topic 1</a>
-				<a href="#topic2" class="btn btn-link">Topic 2</a>
-				<a href="#topic3" class="btn btn-link">Topic 3</a>
-			</div>
-		</div><!-- /.container -->
+				<div class="link_bar">
+					<a href="#dosTopic" class="btn btn-link">Denial of Service Attacks</a>
+					<a href="#webAppTopic" class="btn btn-link">Web App Attacks</a>
+					<a href="#topic3" class="btn btn-link">Topic 3</a>
+				</div>
+				<hr>
 
-		<!-- Place Javascript Here -->
+					<div id="topic3">
+						<h1>Topic 3</h1>
+						<p>Some content on topic 1 here</p>
+						<br><br><br><br><br><br><br><br>
+						...
+						<br><br><br><br><br><br><br><br>
+						<p>more topic 1 content </p>
+					</div>
+					<hr>
+						<div class="link_bar">
+							<a href="#dosTopic" class="btn btn-link">Denial of Service Attacks</a>
+							<a href="#webAppTopic" class="btn btn-link">Web App Attacks</a>
+							<a href="#topic3" class="btn btn-link">Topic 3</a>
+						</div>
+					</div><!-- /.container -->
 
-		<!-- Bootstrap core JavaScript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-			<script src="js/bootstrap.min.js"></script>
-		</body>
-	</html>
+					<!-- Place Javascript Here -->
+					<script src="js/noframework.waypoints.min.js"></script>
+					<script src="js/nav.js"></script>
+
+					<!-- Bootstrap core JavaScript
+					================================================== -->
+					<!-- Placed at the end of the document so the pages load faster -->
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+					<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+						<script src="js/bootstrap.min.js"></script>
+					</body>
+				</html>
