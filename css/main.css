@@ -1,4 +1,19 @@
+body {
+	font-size: 12pt;
+}
+
+blockquote {
+	font-style: italic;
+}
+
 .content {
 	padding-left: 5%;
 	padding-right: 5%;
 }
+
+.center {
+	text-align: center;
+}
+
+.container {
+	width: 80%;
