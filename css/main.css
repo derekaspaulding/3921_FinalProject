@@ -17,6 +17,11 @@ hr {
 	border-color: #aaa;
 }
 
+img {
+	width: 80%;
+	margin: auto;
+}
+
 .content {
 	padding-left: 5%;
 	padding-right: 5%;
@@ -61,4 +66,8 @@ hr {
 
 .footer dt {
 	color: #444;
+}
+
+.footer a {
+	color: #ccc;
 }

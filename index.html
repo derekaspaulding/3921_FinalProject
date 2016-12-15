@@ -5,9 +5,6 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<meta name="description" content=""/>
-		<meta name="author" content=""/>
-
 		<title>Advanced Aspects of Cyberattacks</title>
 
 		<!-- Bootstrap core CSS -->
@@ -96,14 +93,21 @@
 							<li><a href="#dosMotivation">Motivation for DoS Attacks</a></li>
 							<li><a href="#dosPrevention">DoS Prevention</a></li>
 							<li><a href="#dyn">Attack on DynDNS</a></li>
+							<li><a href="#dosEthics">Ethics and Legality</a></li>
+							<li><a href="#dosFR">Further Reading</a></li>
 						</ul>
 						<li><a href="#socialEngNavButton">Social Engineering</a></li>
 						<ul>
 							<li><a href="#seIntro">Introduction</a></li>
 							<li><a href="#seExample">Example of Social Engineering</a></li>
 							<li><a href="#socialNetworking">Social Networking: The Social Engineering Database</a></li>
+						</ul>
+						<li><a href="references.html" target="blank">References</a></li>
+					</ul>
 				</div>
 			</div>
+
+			<hr />
 
 			<div id="webAppTopic">
 				<h1>Attacks on Web Applications</h1>
@@ -220,7 +224,7 @@
 						passwords as plain text, there are still certain pitfalls to avoid,
 						as 
 
-						<a href="https://nakedsecurity.sophos.com/2013/11/04/anatomy-of-a-password-disaster-adobes-giant-sized-cryptographic-blunder/">this article</a>
+						<a href="https://nakedsecurity.sophos.com/2013/11/04/anatomy-of-a-password-disaster-adobes-giant-sized-cryptographic-blunder/" target="blank">this article</a>
 
 						by the security news site Naked Security by Somos showed by
 						analyzing data gathered from an adobe breach of “encrypted”
@@ -409,6 +413,27 @@
 						an estimated 1.2 terabit per second load on the server. The attack
 						took out access to many big websites for about two hours, including
 						Netflix, Github, Amazon, and Twitter.</p>
+
+					<h2 id="dosEthics">Ethics and Legality</h2>
+					<p>In most countries it is illegal to participate in a DoS attack. In
+						the United States such an attack is considered a violation of the
+						Computer Fraud and Abuse Act, with severe penalties for
+						perpetrators. However, many people have argued that it is ethically
+						okay to participate in a DDoS attack if it is used as a sign of
+						protest. In 2013 there was a <a href="https://petitions.whitehouse.gov/petition/make-distributed-denial-service-ddos-legal-form-protesting" target="blank">petition to the White House</a> asking to
+						make DDoS a legal form of protesting. Although it did not gather
+						many signatures, it made a reasonable comparison between DDoS
+						attacks and “occupy” protests. The ethics of protesting using DoS
+						attacks remains up for debate, but for now it is illegal to do
+						so.</p>
+
+					<h2 id="dosFR">Further Reading</h2>
+					<p>To learn more about DDoS techniques and trends see Imperva’s 
+						<a href="https://www.imperva.com/docs/DS_Incapsula_The_Top_10_DDoS_Attack_Trends_ebook.pdf" target="blank">white paper</a> 
+						on the subject. For more information on the DynDNS attack see
+						their <a href="http://dyn.com/blog/dyn-analysis-summary-of-friday-october-21-attack/" target="blank">summary of the attack</a>. A good discussion of the legality of
+						DDoS attacks and their use as a form of civil disobedience can be
+						found on the <a href="http://resources.infosecinstitute.com/legality-ddos-criminal-deed-vs-act-civil-disobedience/" target="blank">Infosec Institute</a> site.</p>
 				</div>
 			</div>
 
@@ -507,6 +532,9 @@
 						reset a password, it is much easier for them to accomplish their
 						goals in a corporate environment.</p>
 
+					<img src="https://cybersecurity.isaca.org/static-assets/images/threats-and-controls/threats/social-engineering-deployment-1840.jpg" 
+							alt="Social Engineering Cycle Chart" />
+
 					<h2 id="socialNetworking">Social Networking: The Social Engineering Database</h2>
 					<p>The advent of social networking sites has made social engineering
 						significantly easier. Sites such as Facebook. Twitter, LinkedIn,
@@ -549,8 +577,13 @@
 							phishing pen­testing data, and in order to make a click­through
 							more likely, it is dynamically seeded with topics extracted from
 							timeline posts of both the target and the users they retweet or
-							follow.
-							 We augment the model with clustering to identify high value targets based on their level of social engagement such as their number of followers and retweets, and measure success using click-­rates of IP­tracked links. Taken together, these techniques enable the world's first automated end­- to-­end spear phishing campaign generator for Twitter.</p>
+							follow.  We augment the model with clustering to identify high
+							value targets based on their level of social engagement such as
+							their number of followers and retweets, and measure success using
+							click-­rates of IP­tracked links. Taken together, these
+							techniques enable the world's first automated end­- to-­end spear
+							phishing campaign generator for Twitter.</p>
+						   <footer>John Seymour and Philip Tully <cite title="Weaponizing data science for social engineering: Automated E2E spear phishing on Twitter">"Weaponizing data science for social engineering: Automated E2E spear phishing on Twitter"</cite></footer>
 					 </blockquote>
 				</div>
 			</div>
@@ -570,6 +603,8 @@
 				<dd>Derek Spaulding</dd>
 				<dd>Ryan Fredlund</dd>
 				<dd>Austin Quam</dd>
+				<br />
+				<dd><a href="references.html" target="blank">References</a></dd>
 			</dl>
 		</div>
 
