@@ -27,7 +27,6 @@
 <body style="padding-top: 50px; padding-bottom: 50px">
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 					<span class="sr-only">Toggle navigation</span>
@@ -35,7 +34,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Final Project</a>
+				<a class="navbar-brand" href="#">Group 10 Final Project</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -50,48 +49,257 @@
 		<div class="container">
 			<!-- Place Content Here -->
 
+			<div id="intro" class="container-fluid">
+				<h1 class="site-title center">Advanced Aspects of Cyber Attacks</h1>
+				<div class="col-md-7">
+					<p>A Cyber attack is any use or attempted use of cybertechnology in a
+						malicious way. With our society’s increasing
+						reliance on cybertechnology throughout our day to day lives, and
+						with the unprecedented amounts of data that all people are putting
+						online, there has never been more motive for individuals to carry
+						out or attempt to carry out these attacks. Adding to the problems,
+						as computer systems and software that we use everyday gets more and
+						more complex, more opportunities for error are introduced when
+						building the software. As we will see, even a small mistake can
+						have drastic consequences if it is found and exploited by a user
+						with malicious intent. Also, malicious intent can come in a variety
+						of forms. Incentives might include personal gain, political
+						statement or mayhem, or collecting data for other future attacks.
+						On this site we will discuss a few different aspects of
+						cyberattacks that are common today. In the first section we look at
+						a few details on how websites or web apps are attacked in order to
+						steal information. In the second sections we discuss a method and a
+						few derivatives of it which are commonly used to prevent other
+						people from accessing a website or possibly even the entire
+						internet. Finally, in the last section, we talk about how people
+						can be exploited to get access to their information.</p>
+					<p>To the right you can use our table of contents to quickly navigate
+						the site and view the sub topics that we will discuss in each
+						section.</p>
+				</div>
+				<div class="col-md-5" id="table-of-contents">
+					<h3>Table of Contents</h3>
+					<ul>
+						<li><a href="#webAppTopic">Web App Attacks</a></li>
+						<ul>
+							<li><a href="#webIntro">Introduction</a></li>
+							<li><a href="#sqlInject">SQL Injection</a></li>
+							<li><a href="#pwStorage">Password Storage</a></li>
+							<li><a href="#xss">Cross Site Scripting</a></li>
+						</ul>
+						<li><a href="#dosTopic">DOS Attacks</a></li>
+						<ul>
+							<li><a href="#dosIntro">Introduction</a></li>
+							<li><a href="#dDos">Distributed Denial of Service</a></li>
+							<li><a href="#drDos">Distributed-Reflected Denial of Service</a></li>
+							<li><a href="#slowloris">Slowloris</a></li>
+							<li><a href="#dosMotivation">Motivation for DoS Attacks</a></li>
+							<li><a href="#dosPrevention">DoS Prevention</a></li>
+							<li><a href="#dyn">Attack on DynDNS</a></li>
+						</ul>
+						<li><a href="#socialEngNavButton">Social Engineering</a></li>
+						<ul>
+							<li><a href="#seIntro">Introduction</a></li>
+							<li><a href="#seExample">Example of Social Engineering</a></li>
+							<li><a href="#socialNetworking">Social Networking: The Social Engineering Database</a></li>
+				</div>
+			</div>
+
 			<div id="webAppTopic">
 				<h1>Attacks on Web Applications</h1>
 				<div class="content">
 
-					<h2>Introduction</h2>
-					<p>This section will detail attacks that can be made against web applications. First, we need to define what a web app is. In this case, we will define a “web app” or “web application” as a any website that has some type of user interaction. For example, a website such as this one which only displays information would not be considered a web application for our purposes. The reason that this is important is that a website such as this one is fairly simple and doesn’t use the technologies that make a web application more susceptible to security vulnerabilities. Also, a website such as this is inherently more secure because it doesn’t contain any personal data, financial data or other data of a secretive nature that would be of interest to steal. Hence, there is little incentive to try to find security vulnerabilities in a website like this one.</p>
-					<p>Now that we have defined what a web app is, this section will be devoted to discussing several common attacks that can be made against web apps. The specific attacks that we will be discussing are known as “SQL Injection”, “Cross Site Scripting.” Also, we will look briefly at how passwords should be stored to mitigate damages if they become public.  These are three common attacks that all web apps need to defend against.</p>
+					<h2 id="webIntro">Introduction</h2>
+					<p>This section will detail attacks that can be made against web
+						applications. First, we need to define what a web app is. In this
+						case, we will define a “web app” or “web application” as a any
+						website that has some type of user interaction. For example, a
+						website such as this one which only displays information would not
+						be considered a web application for our purposes. The reason that
+						this is important is that a website such as this one is fairly
+						simple and doesn’t use many of the technologies that make a web
+						application more susceptible to security vulnerabilities. Also, a
+						website such as this is inherently more secure because it doesn’t
+						contain any personal data, financial data or other data of a
+						secretive nature that would be of interest to steal. Hence, there
+						is little incentive to try to find security vulnerabilities in a
+						website like this one. Finally, since there is no user interaction
+						beyond clicking links, there are fewer places that this website
+						could be open to atack.</p>
+					<p>Now that we have defined what a web app is, this section will be
+						devoted to discussing several common attacks that can be made
+						against web apps. The specific attacks that we will be discussing
+						are known as “SQL Injection” and “Cross Site Scripting.” Also, we will
+						look briefly at how passwords should be stored to mitigate damages
+						if they become public.</p>
 
-					<h2>SQL Injection</h2>
-					<p>To discuss SQL Injection, we first need to have a basic understanding of SQL and databases. Databases are relational data structures which store all the data that a web application uses to function. This data might include usernames, passwords or credit card numbers. SQL is the language that is used to query the information out of databases. Finally SQL Injection is the act of exploiting parts of the web app that accept user input to run malicious SQL code which is used to first find something out about the structure of the database and then to pull data of interest out of the database. </p>
-					<p>For example, if an attacker is trying to get account numbers out of a bank’s database. A normal query to the database made when might be of the form</p>
+					<h2 id="sqlInject">SQL Injection</h2>
+					<p>To discuss SQL Injection, we first need to have a basic
+						understanding of SQL and databases. Databases are relational data
+						structures which store all the data that a web application uses to
+						function. This data might include usernames, passwords or credit
+						card numbers. SQL is the language that is used to query the
+						information out of most databases. Finally, SQL Injection is the act of
+						exploiting parts of the web app that accept user input to run
+						malicious SQL code which is often used to first find something out about
+						the structure of the database and then to pull data of interest out
+						of the database. </p>
+					<p>For example, if an attacker is trying to get account numbers out
+						of a bank’s database. A normal query to the database made when
+						a user is attempting to transfer money from one account to
+						another might be of the form</p>
 
 					<code>SELECT accountId, accountBalance FROM Accounts WHERE accountId = %d AND accountBalance > %s</code>
 
-					<p>where <i>%d</i> is the id of an account which a user wants to transfer money out of and <i>%s</i> is the amount that the user want to transfer. These values are where there is a vulnerability to SQL Injection. If the <i>%s</i> value is taken from an input in a form on the web app, the user can put anything into that form and it will be passed, exactly as entered into the query. So, if a malicious user guessed that the database was named “Accounts” and entered</p>
+					<p>where <i>%d</i> is the id of an account which a user wants to
+						transfer money out of and <i>%s</i> is the amount that the user
+						wants to transfer. These values are where there is a vulnerability
+						to SQL Injection. If the <i>%s</i> value is taken from an input in
+						a form on the web app, the user can put anything into that form and
+						it will be passed, exactly as entered into the query. So, if a
+						malicious user guessed that the database was named “Accounts” and
+						entered</p>
 
 					<code>1; SELECT * FROM Accounts; --</code>
 
-					<p>Then, that code would get put into the first query so that the whole query to the database would be:</p>
+					<p>Then, that code would get put into the first query so that the
+						whole query to the database would be:</p>
 
 					<code>SELECT accountId, accountBalance FROM Accounts WHERE accountId = %d AND accountBalance > 1; SELECT * FROM Accounts; --</code>
 
-					<p>This would return all of the information from the Accounts database. This information would likely include account numbers, userIds, account balances and other personal information of everyone whose accounts are stored in that database. With this information, a user could figure out what their account is and then, using a similar method to make more queries they could change the balance of their account in the database and then withdraw cash before anyone catches the error. A user could also destroy the database if they wanted to cause a disruption to everything as a political or personal statement against the bank. </p>
-					<p>The above is a single example of what one malicious user could do using SQL Injection. There are many other things that someone could do in many other cases. Also, it shows that any user input needs to be secured against any malicious intent. There are also multiple ways that a developer can secure their application against this. One way is to force everything to be passed in as an argument, which will prevent the database from executing any code that gets put in and will likely just return an error. Another way to protect against it is by checking the type of all of the data that is passed in. In this case, the value should be checked to make sure it is a number. Then the SQL code would return an error. </p>
+					<p>This would return all of the information from the Accounts
+						database. This information would likely include account numbers,
+						userIds, account balances and other personal information of
+						everyone whose accounts are stored in that database. With this
+						information, a user could figure out what their account id is and
+						then, using a similar method to make more queries they could change
+						the balance of their account in the database and then withdraw cash
+						before anyone catches the error. A user could also destroy the
+						database if they wanted to cause a disruption to everything as a
+						political or personal statement against the bank. </p>
+					<p>To carry out this attack the attacker had to guess that the database
+						was named "Accounts". However, if a server is not set up properly,
+						and error messages are sent to the browser when a bad query is made 
+						rather than to a log file on the server, an attacker can use 
+						various techniques along with the infromation returned by these error
+						messages to learn things about the database structure. Because a 
+						successful SQL Injection relies both on vulerabilities introduced in
+						the code during development and some knowlege of the structure of a 
+						database, it is important that developers and maintainers of web apps
+						keep the structure of the database as secret as possible.</p>
+					<p>The above is a single example of what one malicious user could do
+						using SQL Injection. There are many other things that someone could
+						do in many other cases. Also, it shows that any user input needs to
+						be secured against any malicious intent. There are also multiple
+						ways that a developer can secure their application against this.
+						One way is to force everything to be passed in as an argument,
+						which will prevent the database from executing any code that gets
+						put in and will likely just return an error. Another way to protect
+						against it is by checking the type of all of the data that is
+						passed in. In this case, the value should be checked to make sure
+						it is a number. Then the SQL code would return an error. </p>
 
-					<p>SQL Injections are one of the most common ways that web applications are attacked. They are also not that difficult to defend against. Because of this, any developer who is going to be working with databases should be taught how to defend against them and should be careful to do it properly.</p>
+					<p>SQL Injections are one of the most common ways that web
+						applications are attacked, but they are also not that difficult to
+						defend against. Because of this, any developer who is going to be
+						working with databases should be taught how to defend against them
+						and should be careful to do it properly.</p>
 
-					<h2>Password Storage</h2>
-					<p>Related to SQL injection is the topic of password storage. While, ideally we don’t want data to ever get into the hands of a malicious user, there are ways that are very difficult to protect against, such as a person with inside access leaking a database. Therefore a developer should try to mitigate the damage that a leak could do wherever possible. One of the most critical pieces of data to keep secure is passwords. If an application uses user passwords, certain precautions should be taken to store them in a secure way.  It is probably obvious that storing the passwords in “plain text”, meaning simply storing them as they are typed, is not a good idea. Even without storing the passwords as plain text, there are still certain pitfalls to avoid, as 
+					<h2 id="pwStorage">Password Storage</h2>
+					<p>Related to SQL injection is the topic of password storage. While,
+						ideally we don’t want data to ever get into the hands of a
+						malicious user, there are ways in which that could happen that are
+						very difficult to protect against, such as a person with inside
+						access leaking a database.  Therefore a developer should try to
+						mitigate the damage that a leak could do wherever possible. One of
+						the most critical pieces of data to keep secure is passwords. If an
+						application uses user passwords, certain precautions should be
+						taken to store them in a secure way.  It is probably obvious that
+						storing the passwords in “plain text”, meaning simply storing them
+						as they are typed, is not a good idea.  Even without storing the
+						passwords as plain text, there are still certain pitfalls to avoid,
+						as 
+
 						<a href="https://nakedsecurity.sophos.com/2013/11/04/anatomy-of-a-password-disaster-adobes-giant-sized-cryptographic-blunder/">this article</a>
-						by the security news site Naked Security by Somos showed by analyzing data gathered from an adobe breach of “encrypted” passwords in 2013. The current standard way to store passwords is by using a “salt” and “hash.” A salt is a random string of characters which is generated for each user. A hash is a function which takes in a string of characters and outputs a different string of characters. The hash function is designed in such a way that it is easy to compute the hash from the password but nearly impossible to compute the password from the hash. The salt is added to the password before hashing it. The purpose of the salt is so that identical passwords won’t have the same hash value, making it more difficult for people who get the entire database to guess similar passwords. When passwords are stored in this way, it is almost impossible to get the password from the database which the salted and hashed password is stored.</p>
 
-					<h2>Cross Site Scripting (XSS)</h2>
-					<p>Cross Site Scripting is another very common attack. It is similar to SQL Injection in that it exploits how the code that websites are built on work and it also exploits unsecured user input. The difference is, instead of exploiting databases on the server and the SQL language that is used by them, it exploits that HTML and JavaScript that is run on the client side of the website.  A web page is built with a series of HTML tags. These tags define different things like where the body of the page starts and ends, or if some text should be bold or italic. One special tag is the ‘&lt;script&gt;’ tag. This tag tells the page that everything within that tag is in the language JavaScript. JavaScript is used to make websites more interactive. For example, on this website JavaScript is used to make the navigation at the top highlight the section you are viewing as you scroll through it. This is a very simple use of the language, but it is an example of something that wouldn’t be possible with only HTML tags. </p>
+						by the security news site Naked Security by Somos showed by
+						analyzing data gathered from an adobe breach of “encrypted”
+						passwords in 2013. The current standard way to store passwords is
+						by using a “salt” and “hash.” A salt is a random string of
+						characters which is generated for each user. A hash is a function
+						which takes in a string of characters and outputs a different
+						string of characters. The hash function is designed in such a way
+						that it is easy to compute the hash from the password but nearly
+						impossible to compute the password from the hash. The salt is added
+						to the password before hashing it. The purpose of the salt is so
+						that identical passwords won’t have the same hash value, making it
+						more difficult for people who get the entire database to guess
+						similar passwords. When passwords are stored in this way and
+						current, well tested cryptographic hash functions are used, it is
+						almost impossible to get the password from the database which the
+						salted and hashed password is stored.</p>
 
-					<p>A Cross Site Scripting attack happens when a user enters these script tags with JavaScript code between them into an input where the information entered is later shown elsewhere on the site. When the site places the text entered on the site it will get to the script tag and realize that it needs to run the code within those tags. Usually, this isn’t a big deal because it can only affect the user who is view the page and who entered the code and there is really no lasting harm done. There is one case, though, where lasting harm can be done. If the field which the user enters the code is one that stores what the user enters and then displays it to others, then it will affect everyone who sees the code. An example of this is a website which has a comment section. If a user enters a comment that contains the JavaScript code then the website displays this comment to others, the JavaScript will be run every time a user visits the site. Depending on the site and where the comment section is, this could be a huge security vulnerability. For example, if users can view articles and comments without being logged in, but the fields to enter the username and password appear at the top of the page, the injected code could hijack those fields and send the user's login details elsewhere before sending them to the website they are on and logging them in.</p>
+					<h2 id="xss">Cross Site Scripting (XSS)</h2>
+					<p>Cross Site Scripting is another very common attack. It is similar
+						to SQL Injection in that it exploits how the code that websites are
+						built on work and it also exploits unsecured user input. The
+						difference is, instead of exploiting databases on the server and
+						the SQL language that is used by them, it exploits that HTML and
+						JavaScript that is run on the client side of the website.  A web
+						page is built with a series of HTML tags. These tags define
+						different things like where the body of the page starts and ends,
+						or if some text should be bold or italic. One special tag is the
+						‘&lt;script&gt;’ tag. This tag tells the page that everything
+						within that tag is in the language JavaScript. JavaScript is used
+						to make websites more interactive. For example, on this website
+						JavaScript is used to make the navigation at the top highlight the
+						section you are viewing as you scroll through it. This is a very
+						simple use of the language, but it is an example of something that
+						wouldn’t be possible with only HTML tags. </p>
 
-					<p>To protect against this, all user input should be “escaped”, meaning that any characters that have special meaning in HTML such as the ‘<’ and ‘>’ characters should be converted to the character codes so that the page will display them as text instead of running it as code. This is very similar to how to protect against SQL Injection.</p>
+					<p>A Cross Site Scripting attack happens when a user enters these
+						script tags with JavaScript code between them into an input where
+						the information entered is later shown elsewhere on the site. When
+						the site places the text entered on the site it will get to the
+						script tag and realize that it needs to run the code within those
+						tags. Usually, this isn’t a big deal because it can only affect the
+						user who is viewing the page and who entered the code and there is
+						really no lasting harm done. There are cases, though, where lasting
+						harm can be done. For example, if the field which the attacker
+						enters the code is one that stores what the user enters and then
+						displays it to others, then it will affect everyone who sees the
+						the page where the user generated content is displayed. An example
+						of this is a website which has a comment section.  If a user enters
+						a comment that contains the JavaScript code then the website
+						displays this comment to others, the JavaScript will be run every
+						time a user visits the site. Depending on the site and where the
+						comment section is, this could be a huge security vulnerability.
+						For example, if users can view articles and comments without being
+						logged in, but the fields to enter the username and password appear
+						at the top of the page, the injected code could hijack those fields
+						and send the user's login details elsewhere before sending them to
+						the website they are on and logging them in.</p>
 
-					<p>Similar to SQL Injection, anyone who develops web applications should know about Cross Site Scripting Vulnerabilities and should know how to defend against them.</p>
+					<p>To protect against this, all user input should be “escaped”,
+						meaning that any characters that have special meaning in HTML such
+						as the ‘<’ and ‘>’ characters should be converted to the character
+						codes so that the page will display them as text instead of running
+						it as code. This is very similar to how to protect against SQL
+						Injection.</p>
+
+					<p>Similar to SQL Injection, anyone who develops web applications
+						should know about Cross Site Scripting Vulnerabilities and should
+						know how to defend against them.</p>
 
 				</div>
+				<!--
+				<div id="xssExample">
+					<textarea></textarea><br/>
+					<button>Submit</button>
+					<div id="text">
+					</div>
+				</div>
+				-->
 			</div>
 
 			<hr/>
@@ -105,27 +313,102 @@
 			<div id="dosTopic">
 				<h1>Denial of Service Attacks (DoS)</h1>
 				<div class="content">
-					<h2>Introduction</h2>
-					<p>Sometimes people don’t want to break into a website, but they just want to disrupt it. A denial of service attack, or DoS, prevents legitimate uses of a website by flooding it with illegitimate requests. The way your web browser works is it sends what is called an HTTP request to a server hosting the website you are trying to reach. The server reads the request and sends the webpage content back to you, which you then see show up. The server can only handle a few requests at a time, so if too many requests come in it has to make them wait until it can handle them. The basic idea behind a DoS attack is sending HTTP requests to the server as fast as possible, “flooding” it with your requests so legitimate requests can’t be served (or are handled very slowly). This kind of attack is usually not permanently damaging, and often happens for only a few hours</p>
+					<h2 id="dosIntro">Introduction</h2>
+					<p>Sometimes people don’t want to break into a website, but they just
+						want to disrupt it. A denial of service attack, or DoS, prevents
+						legitimate uses of a website by flooding it with illegitimate
+						requests. The way your web browser works is it sends what is called
+						an HTTP request to a server hosting the website you are trying to
+						reach. The server reads the request and sends the webpage content
+						back to you, which you then see show up. The server can only handle
+						a few requests at a time, so if too many requests come in it has to
+						make them wait until it can handle them. The basic idea behind a
+						DoS attack is sending HTTP requests to the server as fast as
+						possible, “flooding” it with your requests so legitimate requests
+						can’t be served (or are handled very slowly). This kind of attack
+						is usually not permanently damaging, and often happens for only a
+						few hours</p>
 
-					<h2>Distributed Denial of Service (DDoS)</h2>
-					<p>A common type of DoS attack is a Distributed Denial of Service (DDoS) attack. In this attack, many systems perform a DoS attack at the same time. This can greatly increase the number of requests the server is receiving, and it is harder to stop than if only one user was performing a DoS attack. Usually the systems performing a DDoS attack are part of a “botnet”, which is a collection of compromised systems that can be controlled by the botnet’s creator, usually without the knowledge of the systems’ owners. The creator of the botnet tells all of the compromised systems in the botnet to send requests to the targeted website, which then gets overloaded and is rendered unusable. The largest botnets can have millions of computers, so they can be effective at taking down large websites and even (sections of the internet’s infrastructure:link to DynDNS example).	</p>
+					<h2 id="dDos">Distributed Denial of Service (DDoS)</h2>
+					<p>A common type of DoS attack is a Distributed Denial of Service
+						(DDoS) attack. In this attack, many systems perform a DoS attack at
+						the same time. This can greatly increase the number of requests the
+						server is receiving, and it is harder to stop than if only one user
+						was performing a DoS attack. Usually the systems performing a DDoS
+						attack are part of a “botnet”, which is a collection of compromised
+						systems that can be controlled by the botnet’s creator, usually
+						without the knowledge of the systems’ owners. The creator of the
+						botnet tells all of the compromised systems in the botnet to send
+						requests to the targeted website, which then gets overloaded and is
+						rendered unusable. The largest botnets can have millions of
+						computers, so they can be effective at taking down large websites
+						and even (sections of the internet’s infrastructure:link to DynDNS
+						example).	</p>
 
-					<h2>Distributed-Reflected Denial of Service (DRDoS)</h2>
-					<p>The Distributed-Reflected Denial of Service (DRDoS) attack is similar to the DDoS attack. However, instead of having many compromised systems send requests to the targeted server, forged requests are sent to hundreds of thousands of legitimate systems, all claiming to have come from the targeted server. Most of these machines then respond to this fake request, flooding the target with their responses. It is extremely difficult to stop this sort of attack because, to the server, all of these responses are valid and coming from valid systems. </p>
+					<h2 id="drDos">Distributed-Reflected Denial of Service (DRDoS)</h2>
+					<p>The Distributed-Reflected Denial of Service (DRDoS) attack is
+						similar to the DDoS attack. However, instead of having many
+						compromised systems send requests to the targeted server, forged
+						requests are sent to hundreds of thousands of legitimate systems,
+						all claiming to have come from the targeted server. Most of these
+						machines then respond to this fake request, flooding the target
+						with their responses. It is extremely difficult to stop this sort
+						of attack because, to the server, all of these responses are valid
+						and coming from valid systems. </p>
 
-					<h2>Slowloris</h2>
-					<p>Another type of DoS attack is called Slowloris. It works by opening up as many connections to the web server as it can. Web servers have a finite amount of connections they can make at any given time, so if one user used all of the connections they would be stopping anyone else from connecting to the server and getting the web site. To keep all of its connections open, it sends an HTTP POST request that says it is really large (usually 2GB). It then sends pieces of its “data” over long periods of time. The server waits for the entire message to come through, which effectively disables that connection for a while. This attack can be used by a single person to effectively shut down an entire website.
+					<h2 id="slowloris">Slowloris</h2>
+					<p>Another type of DoS attack is called Slowloris. It works by
+						opening up as many connections to the web server as it can. Web
+						servers have a finite amount of connections they can make at any
+						given time, so if one user used all of the connections they would
+						be stopping anyone else from connecting to the server and getting
+						the web site. To keep all of its connections open, it sends an HTTP
+						POST request that says it is really large (usually 2GB). It then
+						sends pieces of its “data” over long periods of time. The server
+						waits for the entire message to come through, which effectively
+						disables that connection for a while. This attack can be used by a
+						single person to effectively shut down an entire website.
 					</p>
 
-					<h2>Motivation for DoS Attacks</h2>
-					<p>There are a few reasons why someone would perform a DoS attack. Sometimes it is motivated out of anger towards a company or organization. As retaliation for being slighted by that entity, the individual DoSes their website. Another way DoS attacks are used is as a cover for other, more sophisticated attacks. Performing a DoS attack on a server allocates most of that server’s technical workers to stop the attack, allowing advanced persistent threats to be installed or data to be stolen:links with a smaller chance that the owner of the server notices. Finally, DoS attacks are often used as a form of hacktivism. Hacktivism is the online equivalent of activism. In this case, a DoS attack on an organization is a sign of protest against that organization. This kind of attack is usually a DDoS attack, with the exception that many of the systems used in the attack are doing so with the owner’s full knowledge, rather than using only a botnet.</p>
+					<h2 id="dosMotivation">Motivation for DoS Attacks</h2>
+					<p>There are a few reasons why someone would perform a DoS attack.
+						Sometimes it is motivated out of anger towards a company or
+						organization. As retaliation for being slighted by that entity, the
+						individual DoSes their website. Another way DoS attacks are used is
+						as a cover for other, more sophisticated attacks. Performing a DoS
+						attack on a server allocates most of that server’s technical
+						workers to stop the attack, allowing advanced persistent threats to
+						be installed or data to be stolen:links with a smaller chance that
+						the owner of the server notices. Finally, DoS attacks are often
+						used as a form of hacktivism. Hacktivism is the online equivalent
+						of activism. In this case, a DoS attack on an organization is a
+						sign of protest against that organization. This kind of attack is
+						usually a DDoS attack, with the exception that many of the systems
+						used in the attack are doing so with the owner’s full knowledge,
+						rather than using only a botnet.</p>
 
-					<h2>DoS Prevention</h2>
-					<p>If a DoS attack comes from one source, it can be stopped by blocking incoming network traffic from that source. If it is a DDoS or DRDoS attack, however, it is much harder to detect and prevent. Some services exist which analyze incoming network traffic for abnormalities to prevent some of these attacks, or at least make them less effective. Many sites use these services, but if they are attacked indirectly (like in the DynDNS attack) there’s nothing they can do.</p>
+					<h2 id="dosPrevention">DoS Prevention</h2>
+					<p>If a DoS attack comes from one source, it can be stopped by
+						blocking incoming network traffic from that source. If it is a DDoS
+						or DRDoS attack, however, it is much harder to detect and prevent.
+						Some services exist which analyze incoming network traffic for
+						abnormalities to prevent some of these attacks, or at least make
+						them less effective. Many sites use these services, but if they are
+						attacked indirectly (like in the DynDNS attack) there’s nothing
+						they can do.</p>
 
-					<h2>Attack on DynDNS</h2>
-					<p>When you type an address into your web browser, say google.com, the web browser has to look up where that website actually is. It does this by going to the internet’s Domain Name Service (DNS) and matching the web address with its IP address. Without DNS most users of the internet would not be able to access websites in their browsers. A DDoS attack on a major DNS provider, DynDNS, occurred on October 21, 2016. It used a botnet composed of Internet of Things (IoT) devices. It was the largest DDoS attack to date, with an estimated 1.2 terabit per second load on the server. The attack took out access to many big websites for about two hours, including Netflix, Github, Amazon, and Twitter.</p>
+					<h2 id="dyn">Attack on DynDNS</h2>
+					<p>When you type an address into your web browser, say google.com,
+						the web browser has to look up where that website actually is. It
+						does this by going to the internet’s Domain Name Service (DNS) and
+						matching the web address with its IP address. Without DNS most
+						users of the internet would not be able to access websites in their
+						browsers. A DDoS attack on a major DNS provider, DynDNS, occurred
+						on October 21, 2016. It used a botnet composed of Internet of
+						Things (IoT) devices. It was the largest DDoS attack to date, with
+						an estimated 1.2 terabit per second load on the server. The attack
+						took out access to many big websites for about two hours, including
+						Netflix, Github, Amazon, and Twitter.</p>
 				</div>
 			</div>
 
@@ -141,15 +424,32 @@
 				<h1>Social Engineering</h1>
 
 				<div class="content">
-					<h2>Introduction</h2>
-					<p>Social engineering is a cyber attack that focuses on composing the human elements of a computer system. Social engineering is incredibly versatile and can be used to accomplish almost any goal provided that a human is involved in the process. </p>
+					<h2 id="seIntro">Introduction</h2>
+					<p>Social engineering is a cyber attack that focuses on composing the
+						human elements of a computer system. Social engineering is
+						incredibly versatile and can be used to accomplish almost any goal
+						provided that a human is involved in the process. </p>
 
-					<p>Social engineering can be conducted at no cost, but it is most effective when a budget is set aside for use as a part of information gathering and other resources. Social engineering takes many forms, including active and passive, as well as targeted and general. Because social engineering is so versatile, it can truly fit any budget and situation. </p>
+					<p>Social engineering can be conducted at no cost, but it is most
+						effective when a budget is set aside for use as a part of
+						information gathering and other resources. Social engineering takes
+						many forms, including active and passive, as well as targeted and
+						general. Because social engineering is so versatile, it can truly
+						fit any budget and situation. </p>
 
-					<p>Social engineering efforts have certainly changed as the internet and big data have become more prominent. Information is power in social engineering, and skilled social engineers are able to weaponize even the most trivial pieces of information.</p>
+					<p>Social engineering efforts have certainly changed as the internet
+						and big data have become more prominent. Information is power in
+						social engineering, and skilled social engineers are able to
+						weaponize even the most trivial pieces of information.</p>
 
-					<h2>Example of Social Engineering</h2>
-					<p>Most active and targeted social engineering efforts are conducted against businesses, but any target can be manipulated via social engineering. Social engineering often breaks into four categories, including active targeted social engineering, passive targeted social engineering, active general social engineering, and passive general social engineering. Each of these categories use different technology to accomplish their goals.</p>
+					<h2 id="seExample">Example of Social Engineering</h2>
+					<p>Most active and targeted social engineering efforts are conducted
+						against businesses, but any target can be manipulated via social
+						engineering. Social engineering often breaks into four categories,
+						including active targeted social engineering, passive targeted
+						social engineering, active general social engineering, and passive
+						general social engineering. Each of these categories use different
+						technology to accomplish their goals.</p>
 
 					<h4 class="center">Technologies by Social Engineering (SE) Category</h4>
 					
@@ -167,27 +467,89 @@
 						<dd>Mass Email Phishing, Social Engineering Bots</dd>
 					</dl>
 
-					<p>Each of these social engineering technologies can be used in different categories, what differentiates between <b>active</b> and <b>passive</b> is whether or not the social engineer is engaged at the point of compromise.</p>
+					<p>Each of these social engineering technologies can be used in
+						different categories, what differentiates between <b>active</b> and
+						<b>passive</b> is whether or not the social engineer is engaged at
+						the point of compromise.</p>
 
-					<p><b>Targeted</b> and <b>general</b> categories are defined by the amount of information that is integrated into the social engineering attack. Gathering and integrating information into a social engineering attack takes time and effort, so often attackers will make the most of information they can easily access and take any shortcut possible along the way. </p>
+					<p><b>Targeted</b> and <b>general</b> categories are defined by the
+						amount of information that is integrated into the social
+						engineering attack. Gathering and integrating information into a
+						social engineering attack takes time and effort, so often attackers
+						will make the most of information they can easily access and take
+						any shortcut possible along the way. </p>
 
 					<h2>Social Engineering and Security Breaches</h2>
-					<p>According to the SANS Institute, social engineering is a key component in most security breaches. Users fall prone to opening email attachments from unfamiliar sources. Users even search out risky content from unfamiliar sources, such as free software or utilities that appear useful but could maintain malware. Social engineers know what users value, and take the time to set up malicious sites and “software” as a form of passive social engineering. </p>
+					<p>According to the SANS Institute, social engineering is a key
+						component in most security breaches. Users fall prone to opening
+						email attachments from unfamiliar sources. Users even search out
+						risky content from unfamiliar sources, such as free software or
+						utilities that appear useful but could maintain malware. Social
+						engineers know what users value, and take the time to set up
+						malicious sites and “software” as a form of passive social
+						engineering. </p>
 
-					<p>Phishing (as mentioned above) is an incredibly viable method of attack for social engineers. Phishing can be used to deliver any amount of information and works well to footprint and survey  a target and can operate on a large scale. For instance, if an attacker wants to learn more about a corporate network they can use one name of an employee in a company and email colleagues of the worker with questions to gain more information about the network. </p>
+					<p>Phishing (as mentioned above) is an incredibly viable method of
+						attack for social engineers. Phishing can be used to deliver any
+						amount of information and works well to footprint and survey  a
+						target and can operate on a large scale. For instance, if an
+						attacker wants to learn more about a corporate network they can use
+						one name of an employee in a company and email colleagues of the
+						worker with questions to gain more information about the network.
+					</p>
 
-					<p>Another common social engineering attack is password theft. Social engineers are able to save a lot of time when they circumvent technical controls by obtaining authorized access. To gain authorization, social engineers try to target individuals who have authentication or can add an attacker to a privileged user group. If a social engineer can convince IT or other staff to disclose or reset a password, it is much easier for them to accomplish their goals in a corporate environment.</p>
+					<p>Another common social engineering attack is password theft. Social
+						engineers are able to save a lot of time when they circumvent
+						technical controls by obtaining authorized access. To gain
+						authorization, social engineers try to target individuals who have
+						authentication or can add an attacker to a privileged user group.
+						If a social engineer can convince IT or other staff to disclose or
+						reset a password, it is much easier for them to accomplish their
+						goals in a corporate environment.</p>
 
-					<h2>Social Networking: The Social Engineering Database</h2>
-					<p>The advent of social networking sites has made social engineering significantly easier. Sites such as Facebook. Twitter, LinkedIn, and other major websites have a ton of valuable information that can be used to identify targets for social engineering and information that can help to enhance social engineering efforts.</p>
+					<h2 id="socialNetworking">Social Networking: The Social Engineering Database</h2>
+					<p>The advent of social networking sites has made social engineering
+						significantly easier. Sites such as Facebook. Twitter, LinkedIn,
+						and other major websites have a ton of valuable information that
+						can be used to identify targets for social engineering and
+						information that can help to enhance social engineering
+						efforts.</p>
 
-					<p>A new development in social engineering using social networks involves machine learning and social networking attacks. By using machine learning to identify targets and enhance attacks, attackers are able to operate at a massive scale with a high success rate. This attack was demonstrated at Defcon 24 this past summer, which is a conference for the cybersecurity community.</p>
+					<p>A new development in social engineering using social networks
+						involves machine learning and social networking attacks. By using
+						machine learning to identify targets and enhance attacks, attackers
+						are able to operate at a massive scale with a high success rate.
+						This attack was demonstrated at Defcon 24 this past summer, which
+						is a conference for the cybersecurity community.</p>
 
-					<p>The attack (conducted by ) applied machine learning principles to study a user’s interactions on Twitter including retweets, favorites, and other user actions. The attacker then generates a semantic attack based on information they scraped from the user profile that takes the form of a tweet that mentions the victim and includes a link to a malicious URL that is disguised using a URL shortener. This attack is unique because it autonomously selects “high-value” targets based on follower accounts and other factors, and deploys an attack without any user intervention which makes this attack a passive targeted attack. This hybrid approach to social engineering is an indicator that social engineering can be enhanced as new technology is developed, and the success rate on these attacks is significantly higher than other cyber attacks. </p>
+					<p>The attack (conducted by ) applied machine learning principles to
+						study a user’s interactions on Twitter including retweets,
+						favorites, and other user actions. The attacker then generates a
+						semantic attack based on information they scraped from the user
+						profile that takes the form of a tweet that mentions the victim and
+						includes a link to a malicious URL that is disguised using a URL
+						shortener. This attack is unique because it autonomously selects
+						“high-value” targets based on follower accounts and other factors,
+						and deploys an attack without any user intervention which makes
+						this attack a passive targeted attack. This hybrid approach to
+						social engineering is an indicator that social engineering can be
+						enhanced as new technology is developed, and the success rate on
+						these attacks is significantly higher than other cyber attacks.
+					</p>
 
-					<p>The author describes the attack in the following excerpt taken from his whitepaper</p>
+					<p>The author describes the attack in the following excerpt taken
+						from his whitepaper</p>
 					<blockquote>
-						<p>Social networks, especially Twitter with its access to extensive personal data, bot-­friendly API, colloquial syntax and prevalence of shortened links, are the perfect venues for spreading machine­-generated malicious content. We present a recurrent neural network that learns to tweet phishing posts targeting specific users. The model is trained using spear phishing pen­testing data, and in order to make a click­through more likely, it is dynamically seeded with topics extracted from timeline posts of both the target and the users they retweet or follow.
+						<p>Social networks, especially Twitter with its access to extensive
+							personal data, bot-­friendly API, colloquial syntax and
+							prevalence of shortened links, are the perfect venues for
+							spreading machine­-generated malicious content. We present a
+							recurrent neural network that learns to tweet phishing posts
+							targeting specific users. The model is trained using spear
+							phishing pen­testing data, and in order to make a click­through
+							more likely, it is dynamically seeded with topics extracted from
+							timeline posts of both the target and the users they retweet or
+							follow.
 							 We augment the model with clustering to identify high value targets based on their level of social engagement such as their number of followers and retweets, and measure success using click-­rates of IP­tracked links. Taken together, these techniques enable the world's first automated end­- to-­end spear phishing campaign generator for Twitter.</p>
 					 </blockquote>
 				</div>
@@ -198,11 +560,25 @@
 				<a href="#dosTopic" class="btn btn-link">Denial of Service Attacks</a>
 				<a href="#socialEngTopic" class="btn btn-link">Social Engineering</a>
 			</div>
+			<hr />
+
 		</div><!-- /.container -->
+
+		<div class="footer">
+			<dl class="dl-horizontal">
+				<dt>Authors</dt>
+				<dd>Derek Spaulding</dd>
+				<dd>Ryan Fredlund</dd>
+				<dd>Austin Quam</dd>
+			</dl>
+		</div>
 
 		<!-- Place Javascript Here -->
 		<script src="js/noframework.waypoints.min.js"></script>
 		<script src="js/nav.js"></script>
+		<!-- XSS Example JS
+		<script src="js/xss.js"></script>
+		-->
 
 		<!-- Bootstrap core JavaScript
 		================================================== -->

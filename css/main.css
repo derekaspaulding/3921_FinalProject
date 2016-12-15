@@ -1,9 +1,20 @@
+html {
+	padding: 0;
+	margin: 0;
+}
+
 body {
 	font-size: 12pt;
+	padding-bottom: 0 !important;
+	margin-bottom: 0;
 }
 
 blockquote {
 	font-style: italic;
+}
+
+hr {
+	border-color: #aaa;
 }
 
 .content {
@@ -15,5 +26,39 @@ blockquote {
 	text-align: center;
 }
 
+.navbar-brand {
+	color: #a0120a !important;
+}
+
 .container {
 	width: 80%;
+}
+
+.site-title {
+	text-align: center;
+}
+
+#table-of-contents {
+	background-color: #dfdfdf;
+}
+
+#table-of-contents h3 {
+ padding-top: 0;
+ margin-top: 10px;
+}
+
+#intro {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.footer {
+	padding-top: 2.5em;
+	padding-bottom: 1em;
+	background-color: #777;
+	color: #ccc;
+}
+
+.footer dt {
+	color: #444;
+}
